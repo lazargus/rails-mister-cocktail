@@ -1,7 +1,15 @@
-<h1>Crazy Cocktails!</h1>
+ <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1551024709-8f23befc6f87?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1725&q=80)">
+      <div class="container">
+        <h1>Welcome to <strong>crazy cocktails</strong></h1>
+        <p>Here is a small app to find or create the cocktail of your dreams.</p>
+        <%= link_to 'Add a new cocktail', new_cocktail_path, class:"btn-banner"%>
+      </div>
+    </div>
 
-<ul>
-  <% @cocktails.each do |cocktail| %>
-    <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <ul>
+    <% @cocktails.each do |cocktail| %>
+      <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
+    <% end %>
+  </ul>
+</div>
