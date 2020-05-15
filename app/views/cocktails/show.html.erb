@@ -1,17 +1,31 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1572184142990-b237959b616a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)">
+      <div class="container">
+        <h1 class='text-center' id='cocktail-name'><strong><%= @cocktail.name %></strong></h1>
+      </div>
+</div>
 
 <div class="container">
-  <h1><%= @cocktail.name %></h1>
+  <!-- <h1><%= @cocktail.name %></h1> -->
+ <!--  <% if @cocktail.photo.attached? %>
+    <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %> -->
   <div class='cocktail-info'>
-    <div>
+    <div class="ingredients-details">
       <h4><strong>Ingredients</strong></h4>
-      <ul>
-        <%@cocktail.doses.each do |dose| %>
-        <li>
-          <%= "#{dose.description} of #{dose.ingredient.name}" %>
-          <%= link_to 'Delete', dose_path(dose), method: :delete, data: {confirm: 'Are you sure?'} %>
+      <br>
+      <div class="ingredient-card">
+        <%= image_tag "shaker.png", alt: "alttext", width: 150 %>
+        <ul>
+          <%@cocktail.doses.each do |dose| %>
+          <li>
+            <%= "#{dose.description} of #{dose.ingredient.name}" %>
+            <%= link_to dose_path(dose), method: :delete, data: {confirm: 'Are you sure?'} do %>
+            <i class="fas fa-trash ml-4"></i>
+            <% end %>
+          </li>
           <% end %>
-        </li>
-      </ul>
+        </ul>
+      </div>
     </div>
     <%= render 'doses/new' %>
   </div>

@@ -7,3 +7,26 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ingredients-details {
+  border: 1px solid #90A8B8;
+  padding: 15px 35px;
+  border-radius: 4px;
+}
+
+.ingredients-details li {
+  list-style-type: none;
+}
+
+.ingredient-card {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

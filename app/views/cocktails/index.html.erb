@@ -7,9 +7,16 @@
     </div>
 
 <div class="container">
-  <ul>
+  <ul class="cards">
     <% @cocktails.each do |cocktail| %>
-      <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
+      <% if cocktail.photo.attached? %>
+        <li class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>')">
+        <%= link_to cocktail.name, cocktail_path(cocktail) %>
+        <% else %>
+          <li class="card-category">
+          <%= link_to cocktail.name, cocktail_path(cocktail) %>
+        <% end %>
+      </li>
     <% end %>
   </ul>
 </div>
